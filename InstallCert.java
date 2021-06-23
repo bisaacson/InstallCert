@@ -200,14 +200,14 @@ public class InstallCert {
         String alias = host + "-" + (k + 1);
         ks.setCertificateEntry(alias, cert);
 
-        OutputStream out = new FileOutputStream("jssecacerts");
+        OutputStream out = new FileOutputStream(file);
         ks.store(out, passphrase);
         out.close();
 
         System.out.println();
         System.out.println(cert);
         System.out.println();
-        System.out.println("Added certificate to keystore 'jssecacerts' using alias '" + alias + "'");
+        System.out.println("Added certificate to keystore " + file + " using alias '" + alias + "'");
     }
 
     private static final char[] HEXDIGITS = "0123456789abcdef".toCharArray();
